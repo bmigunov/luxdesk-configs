@@ -160,6 +160,7 @@ assign [class="thunderbird"] $ws_comm
 assign [class="retroshare"] $ws_comm
 assign [class="zoom"] $ws_comm
 assign [class="Mattermost"] $ws_comm
+assign [class="Element"] $ws_comm
 
 assign [class="steam"] $ws_games
 assign [title="Steam"] $ws_games
