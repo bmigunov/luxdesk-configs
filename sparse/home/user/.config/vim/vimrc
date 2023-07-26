@@ -1,0 +1,253 @@
+" Vim initialization file.
+
+
+
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+
+" Use Vim defaults instead of Vi defaults.
+set nocompatible
+
+" The ASCII code for the first letter of the Hebrew alphabet.
+set aleph=224
+
+" Disable Arabic text editing mode.
+set noarabic
+
+" When 'termbidi' is off, the required visual character corrections that need
+" to take place for displaying the Arabic language take effect. See the
+" arabic.txt
+set arabicshape
+
+" Do not allow CTRL-_ in Insert and Command-line mode.
+set noallowrevins
+
+" Toggle keyboard map between Hebrew and English. See farst.txt
+set noaltkeymap
+
+" Tells Vim what to do with characters with East Asian Width Class Ambigous
+" (such as Euro, Registered Sign, Greek/Cyrillic letters). Possible values:
+" 'single': use the same width as characters in US-ASCII; 'double': use twice
+" the width of ASCII characters.
+set ambiwidth=single
+
+" Do not change the current working directory to the directory containing the
+" file which was opened or selected.
+set noautochdir
+
+" Do not reread a file if it has been changed outside of Vim.
+set noautoread
+
+" Do not write the contents of the file, if it has been modified, on each :next,
+" :rewind, :last, :first, :previous, :stop, :suspend, :tag, :!, :make, CTRL-]
+" and CTRL-^ command; and when a :buffer, CTRL-O, CTRL-I, '{A-Z0-9}, or
+" `{A-Z0-9} command takes one to another file.
+set noautowrite
+
+" Like 'autowrite', but also used for commands :edit, :enew, :quit. :qall,
+" :exit, :xit, :recover and closing the Vim window.
+set noautowriteall
+
+" When set to 'dark'/'light', Vim will try to use colors that look good on a
+" dark/light background.
+set background=dark
+
+" Do not make a backup before overwriting a file.
+set nobackup
+
+" Option that tells how backup is done.
+" 'yes': make a copy of the file and overwrite the original one; 'no': rename
+" the file and write a new one; 'auto': one of the previous, what works best.
+set backupcopy=auto
+
+" List of directories for the backup file, comma-separated.
+set backupdir=$XDG_STATE_HOME/vim/backup
+" String which is appended to a file name to make the name of the backup file.
+set backupext=~
+
+" A list of file patterns. When one of the patterns matches with the name of
+" the file which is written, no backup file is created.
+set backupskip=/tmp/*
+
+" Delay in milliseconds before a balloon may pop up.
+set balloondelay=600
+
+" Disable balloon-eval functionality for the terminal.
+set noballoonevalterm
+
+" Expression for text to show in evaluation balloon. Available arguments:
+" v:beval_bufnr: number of the buffer in which balloon is going to show;
+" v:beval_winnr: number of the window; v:beval_winid: ID of the window;
+" v:beval_lnum: line number; v:beval_col: column number; v:beval_text: word
+" under or after the mouse pointer.
+set balloonexpr=
+
+" Specifies for which events the bell will not be rung. Available arguments:
+" all: all events; backspace: when hitting <BS> or <Del> and deleting results
+" in an error; cursor: fail to move around using the cursor keys or <PageUp>/
+" <PageDown> in Insert-mode; complete: error occured when using
+" i_CTRL-X_CTRL-K or i_CTRL-X_CTRL-T; copy: cannot copy char from insert mode
+" using i_CTRL-Y or i_CTRL-E; ctrlg: unknown char after <C-G> in Insert mode;
+" error: other error occured; esc: hitting <Esc> in Normal-mode; ex: in
+" Visual-mode, hitting Q results in an error; hagul: error occured when using
+" hagul input; insertmode: pressing <Esc> in insertmode; lang: calling the
+" beep module for Lua/Mzscheme/TCL; mess: no output available for g<;
+" showmatch: error occured for showmatch function; operator: empty region
+" error cpo-E; register: unknown register after <C-R> in Insert-mode; shell:
+" bell from shell output :!; spell: error happened on spell suggest; wildmode:
+" more matches in cmdline-completion available.
+set belloff=
+
+" Do not treat files as binary.
+set nobinary
+
+" Byte Order Mark option.
+set nobomb
+
+" Hide a buffer when it is abandoned.
+set hidden
+
+" What happens when a buffer is no longer displayed in a window: <empty>:
+" follow the global 'hidden' option; hide: hide the buffer, also when 'hidden'
+" is not set; unload: unload the buffer, also when 'hidden' is set; delete:
+" delete the buffer from the buffer list (:bdelete); wipe: wipe out the buffer
+" from the buffer list (:bwipeout).
+set bufhidden=
+
+" Show up the buffer in the buffer list.
+set buflisted
+
+" Type of a buffer: <empty>: normal buffer; nofile: buffer which is not
+" related to a file and will not be written; acwrite: buffer which will always
+" be written with BufWriteCmd autocommands; quickfix: quickfix buffer,
+" contains list of errors :cwindow or list of locations :lwindow; help: help
+" buffer; terminal: buffer for a terminal; prompt: buffer where only the last
+" line can be edited. meant to be used by a plugin (see prompt-buffer).
+set buftype=
+
+" A list of directories which will be searched when using the :cd and :lcs
+" commands, provided that the directory being searched for has a relative
+" path, not an absolute part starting with '/', './' or '../', the 'cdpath'
+" option is not used then.
+" set cdpath=
+
+" Allow arrow keys to move cursor to previous/next line when the cursor is on
+" the first/last character in the line.
+set whichwrap=<,>,[,]
+
+" Precede each line with its line number.
+set nu
+
+" List mode. Display listchars.
+set list
+
+" Strings to use in list mode and for the :list command. Comma-separated list
+" of string settings.
+set listchars=tab:>-,space:·
+
+" Number of spaces that a <Tab> in the file counts for.
+set tabstop=4
+
+" Do not expand tabs to spaces
+set noexpandtab
+
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=4
+
+" Copy indent from current line when starting a new line.
+set autoindent
+
+" Do smart autoindenting when starting a new line. Works for C-like programs,
+" but can also be used for other languages.
+set smartindent
+
+" Copy the structure of the existing lines indent when autoindenting a new
+" line. Normally the new indent is reconstructed by a series of tabs followed
+" by spaces as required. Enabling this option makes the new line copy whatever
+" characters were used for indenting on the existing line.
+set copyindent
+
+" Do not visually indent every wrapped line.
+set nobreakindent
+
+" Settings for 'breakindent'; min:{n}: minimum text width that will be kept
+" after applying 'breakindent', even if the resulting text should normally be
+" narrower; shift:{n}: after applying 'breakindent', the wrapped line's
+" beginning will be shifted by the given number of characters; sbr: display
+" the 'showbreak' value before applying the additional indent.
+set breakindentopt=
+
+" When there is a previous search pattern, highlight all its matches.
+set hlsearch
+
+" While typing a search command, show where the pattern, as it was typed so
+" far, matches.
+set incsearch
+
+" Ignore case in search patterns.
+set ignorecase
+
+" Override the 'ignorecase' option if the search pattern contains upper case
+" characters.
+set smartcase
+
+" Make lines longer than the width of the window wrap and display only part of
+" them.
+set wrap
+
+" Value of remembered commands and previous search patterns.
+set history=1024
+
+" Maximum number of changes that can be undone.
+set undolevels=512
+
+" Highlight current line
+set cul
+
+" Highlight specific column
+set colorcolumn=81
+
+" Enable the use of the mouse. Modes: n: normal mode and terminal modes; v:
+" visual mode; i: insert mode; c: command-line mode; h: all previous modes
+" when editing a help file; a: all previous modes; r: for hit-enter and
+" more-prompt prompt.
+set mouse=a
+
+" Set runtime directories
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+
+set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+
+set directory=$XDG_STATE_HOME/vim/swap
+set undodir=$XDG_STATE_HOME/vim/undo
+set viewdir=$XDG_STATE_HOME/vim/view
+
+if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
+
+" Set the colorscheme (~/.vim/colors).
+colorscheme dracula
+
+" Enable syntax highlighting and overrule its settings with the defaults.
+syntax on
+
+
+" File type detection. Plugin files loading is enabled.
+filetype plugin indent on
+
+
+" YouCompleteMe clangd-based completer support
+let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+let g:ycm_server_python_interpreter = "/usr/bin/python3"
+
+
+" Executes the string that results from the evaluationof given expression as
+" an Ex command.
+execute pathogen#infect()

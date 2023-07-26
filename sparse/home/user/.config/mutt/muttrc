@@ -1,0 +1,21 @@
+source $XDG_CONFIG_HOME/mutt/dracula.muttrc
+
+source "gpg -dq $XDG_CONFIG_HOME/mutt/accounts.gpg |"
+
+folder-hook 'gmail.com' 'source ~/.config/mutt/gmail'
+folder-hook 'yandex.ru' 'source ~/.config/mutt/yandex'
+
+source '~/.config/mutt/gmail'
+
+account-hook gmail.com 'set imap_user=$my_borbocomb_gmail_user imap_pass=$my_borbocomb_gmail_pass'
+account-hook yandex.ru 'set imap_user=$my_bogdanmigunov_yandex_user imap_pass=$my_bogdanmigunov_yandex_pass'
+
+macro index <f2> '<change-folder>imaps://imap.yandex.ru<enter>'
+macro index <f3> '<change-folder>imaps://imap.gmail.com<enter>'
+
+set alias_file = $XDG_CONFIG_HOME/mutt/aliases
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+set mailcap_path = $XDG_CONFIG_HOME/mutt/mailcap
+auto_view text/html

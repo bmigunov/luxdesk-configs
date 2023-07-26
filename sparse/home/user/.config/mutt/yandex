@@ -1,0 +1,23 @@
+# GENERAL OPTIONS
+set header_cache     = ~/.cache/mutt/yandex.ru/cache/headers
+set message_cachedir = ~/.cache/mutt/yandex.ru/cache/bodies
+
+# RECEIVE OPTIONS
+set imap_check_subscribed
+unset imap_passive
+set imap_keepalive = 900
+set mail_check     = 1800
+
+# REMOTE YANDEX FOLDERS
+set folder    = 'imaps://imap.yandex.ru:993'
+set spoolfile = '+INBOX'
+set postponed = '+Черновики'
+set record    = '+Отправленные'
+
+# SEND OPTIONS
+set ssl_starttls  = yes
+set ssl_force_tls = yes
+set realname      = $my_name
+set from          = $my_bogdanmigunov_yandex_user
+set smtp_url      = 'smtps://'$my_bogdanmigunov_yandex_user'@smtp.yandex.ru:465/'
+set smtp_pass     = $my_bogdanmigunov_yandex_pass
