@@ -37,10 +37,9 @@ export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 
 export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 
-export GVIMINIT='let $MYGVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/gvimrc" : "$XDG_CONFIG_HOME/nvim/init.gvim" | so $MYGVIMRC'
-export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$XDG_CONFIG_HOME/nvim/init.vim" | so $MYVIMRC'
-
 sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get -y autoremove
 sudo apt-get -y clean
+
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
