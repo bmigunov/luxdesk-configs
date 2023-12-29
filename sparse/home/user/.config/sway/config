@@ -211,9 +211,7 @@ bar
     }
 }
 
-exec --no-startup-id neko -speed 3
-exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/wallpaper
-exec --no-startup-id picom -b
+exec --no-startup-id neko-cat -speed 3
 exec --no-startup-id conky -d
 
 exec --no-startup-id keepassxc
@@ -247,9 +245,7 @@ bindsym $mod+Shift+l exec i3lock -e -f -B 1 -k --insidever-color=#272932dd  \
                      --verif-font="Anonymice Nerd Font Mono"                \
                      --wrong-font="Anonymice Nerd Font Mono"
 
-bindsym $mod+d       exec rofi -show drun
-bindsym $mod+Shift+d exec rofi -show run
-bindsym $mod+Return  exec --no-startup-id rxvt-unicode
+bindsym $mod+Return  exec kitty
 
 bindsym --release $mod+Print exec --no-startup-id scrot -q 100 \
                              ~/Pictures/Screenshots/$(date +%Y%m%d%H%M%S).jpg
