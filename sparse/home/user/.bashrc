@@ -8,23 +8,6 @@
 
 
 
-# If not running interactively, don't do anything.
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# Don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-
-# History options
-HISTFILESIZE=8192
-HISTSIZE=4096
-
-# Colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-
 # Shell options below are set by default.
 
 # Check the window size after each command and, if necessary, update the values
@@ -161,6 +144,31 @@ shopt -u shift_verbose
 # If set, the echo builtin expands backslash-escape sequences by default.
 shopt -u xpg_echo
 
+# Enable programmable completion features
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
+fi
+
+
+# If not running interactively, don't do anything.
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+
+# History options
+HISTFILESIZE=8192
+HISTSIZE=4096
+
+# Colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -169,7 +177,7 @@ fi
 
 # Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    *color* | linux)
+    *color* | linux | *kitty* )
         color_prompt=yes;;
 esac
 
@@ -180,31 +188,33 @@ else
 fi
 unset color_prompt
 
-if [ -f "$HOME/workspace/personal/src/magicmonty/bash-git-prompt/gitprompt.sh" ]; then
+if [ -f "${SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_THEME=Default
-    source $HOME/workspace/personal/src/magicmonty/bash-git-prompt/gitprompt.sh
+    source "${SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh"
 fi
 
 # Enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.config/dircolors && eval "$(dircolors -b ~/.config/dircolors)" || eval "$(dircolors -b)"
-fi
-
-# Alias definitions.
-if [ -f ~/.config/bash/bash_aliases ]; then
-    . ~/.config/bash/bash_aliases
-fi
-
-# Enable programmable completion features
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
+    if [ "${XDG_CONFIG_HOME}" ]; then
+        test -r "${XDG_CONFIG_HOME}/dircolors" && eval "$(dircolors -b ${XDG_CONFIG_HOME}/dircolors)" || eval "$(dircolors -b)"
+    else
+        test -r ~/.config/dircolors && eval "$(dircolors -b ~/.config/dircolors)" || eval "$(dircolors -b)"
     fi
 fi
 
+# Alias definitions.
+if [ -f "${XDG_CONFIG_HOME}/bash/bash_aliases" ]; then
+    . "${XDG_CONFIG_HOME}/bash/bash_aliases"
+elif [ -f ~/.config/bash/bash_aliases ]; then
+    . ~/.config/bash/bash_aliases
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="${XDG_DATA_HOME}/sdkman"
-[[ -s "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh" ]] && source "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh"
+if [ "${XDG_DATA_HOME}" ]; then
+    export SDKMAN_DIR="${XDG_DATA_HOME}/sdkman"
+    [[ -s "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh" ]] && source "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh"
+else
+    export SDKMAN_DIR="${HOME}/.local/share/sdkman"
+    [[ -s "${HOME}/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.local/share/sdkman/bin/sdkman-init.sh"
+fi
