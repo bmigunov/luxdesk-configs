@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=XSession
-Exec=/usr/local/bin/i3
-TryExec=/usr/local/bin/i3
-DesktopNames=i3
-Name=i3 (X11)
