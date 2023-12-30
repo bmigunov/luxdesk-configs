@@ -68,10 +68,6 @@ separator=true
 interval=8
 separator=true
 
-[monitor_manager]
-interval=once
-separator=true
-
 [volume-pulseaudio]
 interval=2
 separator=true
@@ -111,13 +107,6 @@ COLOR_CRIT=#f14c48
 [temperature]
 interval=4
 separator=true
-
-[keyboard_layout]
-color=#52dfe7
-command=xkblayout-state print %s; printf "\n"
-interval=8
-separator=true
-signal=12
 
 [metars]
 interval=2100
