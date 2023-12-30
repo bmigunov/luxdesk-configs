@@ -16,6 +16,9 @@ export EDITOR=nvim
 # Make Java apps appear without issues under Wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Launch Firefox & Thunderbird in Wayland-compatible mode
+export MOZ_ENABLE_WAYLAND=1
+
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
