@@ -184,7 +184,6 @@ for_window [class="steam" title="Steam"] floating disable
 bar
 {
     strip_workspace_numbers yes
-    i3bar_command  i3bar -t
     status_command i3blocks
 #    Debug
 #    status_command 2>/tmp/i3blocks.err /usr/local/bin/i3blocks -vvv -c \
@@ -211,46 +210,20 @@ bar
     }
 }
 
-exec --no-startup-id neko-cat -speed 3
-exec --no-startup-id conky -d
+exec conky -d
 
-exec --no-startup-id keepassxc
-exec --no-startup-id firefox
-exec --no-startup-id thunderbird
-exec --no-startup-id telegram
-exec --no-startup-id retroshare
-exec --no-startup-id discord
-exec --no-startup-id steam
+exec keepassxc
+exec firefox
+exec thunderbird
+exec telegram
+exec retroshare
+exec discord
+exec steam
 
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
-bindsym $mod+Shift+l exec i3lock -e -f -B 1 -k --insidever-color=#272932dd  \
-                     --insidewrong-color=#272932dd --inside-color=#272932dd \
-                     --ringver-color=#1cec84dd --ringwrong-color=#f14c48dd  \
-                     --ring-color=#227ea7dd --line-uses-ring                \
-                     --keyhl-color=#52dfe7dd --bshl-color=#fdf500dd         \
-                     --separator-color=#272932dd --verif-color=#1cec84      \
-                     --wrong-color=#f14c48 --modif-color=#fdf500            \
-                     --layout-color=#227ea7 --date-color=#227ea7            \
-                     --time-color=#227ea7 --indicator --time-str="%H:%M:%S" \
-                     --date-str="%d.%m.%Y" --verif-text="Checking..."       \
-                     --wrong-text="Wrong password" --noinput="No input"     \
-                     --lock-text="Locking..." --lockfailed="Lock Failed"    \
-                     --radius=160 --ring-width=10 --pass-media-keys         \
-                     --pass-screen-keys --pass-volume-keys                  \
-                     --time-font="Anonymice Nerd Font Mono"                 \
-                     --date-font="Anonymice Nerd Font Mono"                 \
-                     --layout-font="Anonymice Nerd Font Mono"               \
-                     --verif-font="Anonymice Nerd Font Mono"                \
-                     --wrong-font="Anonymice Nerd Font Mono"
-
 bindsym $mod+Return  exec kitty
-
-bindsym --release $mod+Print exec --no-startup-id scrot -q 100 \
-                             ~/Pictures/Screenshots/$(date +%Y%m%d%H%M%S).jpg
-bindsym --release $mod+Shift+Print exec --no-startup-id scrot -q 100 -s \
-                                   ~/Pictures/Screenshots/$(date +%Y%m%d%H%M%S).jpg
 
 # Send signal to i3blocks (in case of [keyindicator] usage).
 bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
