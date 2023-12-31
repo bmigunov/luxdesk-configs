@@ -223,6 +223,7 @@ exec steam
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
+bindsym $mod+d exec dmenu_run
 bindsym $mod+Return  exec kitty
 
 # Send signal to i3blocks (in case of [keyindicator] usage).
