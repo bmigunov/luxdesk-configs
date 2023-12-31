@@ -11,7 +11,7 @@ local vim_opt = vim.opt
 
 vim_opt.autoindent = false
 vim_opt.backupcopy = "auto"
-vim_opt.backupdir = {vim_fn.expand("$HOME") .. "/workspace/personal/var/backup/nvim//"}
+vim_opt.backupdir = {vim_fn.expand("$NEOVIM_BACKUP_DIR") .. "//"}
 vim_opt.backupext = ".bk"
 vim_opt.breakindent = true
 vim_opt.breakindentopt = {min = 16, shift = 0, list = 2}
