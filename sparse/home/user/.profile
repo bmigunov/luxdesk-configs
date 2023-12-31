@@ -31,11 +31,17 @@ if [ "${XDG_DATA_HOME}" ]; then
     export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
     export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
     export GOPATH="${XDG_DATA_HOME}/go"
+    export ANDROID_HOME="${XDG_DATA_HOME}/android"
+    export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+    export ELECTRUMDIR="${XDG_DATA_HOME}/electrum"
 else
     export HISTFILE="${HOME}/.local/share/bash/bash_history"
     export GNUPGHOME="${HOME}/.local/share/gnupg"
     export GRADLE_USER_HOME="${HOME}/.local/share/gradle"
     export GOPATH="${HOME}/.local/share/go"
+    export ANDROID_HOME="${HOME}/.local/share/android"
+    export CARGO_HOME="${HOME}/.local/share/cargo"
+    export ELECTRUMDIR="${HOME}/.local/electrum"
 fi
 
 if [ -n "$BASH_VERSION" ]; then

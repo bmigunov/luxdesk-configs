@@ -14,4 +14,8 @@ alias svn='svn --config-dir ${XDG_CONFIG_HOME}/subversion'
 
 alias weather-util='weather-util --cachedir ${XDG_CACHE_HOME}/weather'
 
-alias full-system-upgrade='sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get clean; npm update; pipx upgrade-all; sudo snap refresh; flatpak update'
+alias full-system-upgrade='sudo apt-get update; sudo apt-get -y dist-upgrade; sudo apt-get -y autoremove; sudo apt-get clean; sudo npm --global update; pipx upgrade-all; sudo snap refresh; flatpak update'
+
+alias adb='HOME="${XDG_DATA_HOME}"/android adb'
+
+alias dosbox='dosbox -conf "${XDG_CONFIG_HOME}/dosbox/dosbox.conf"'
