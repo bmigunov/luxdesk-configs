@@ -13,7 +13,7 @@ focus_follows_mouse no
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Bitstream Vera Sans Mono 9
+font pango:Segoe UI Semibold 10
 
 # Border style.
 default_border pixel 2
@@ -24,10 +24,10 @@ workspace_layout tabbed
 
 # Colors
 #    <colorclass>       <border> <background> <text>  <indicator> <child_border>
-client.focused          #272932    #272932    #52dfe7   #fdf500      #f14c48
-client.unfocused        #040714    #040714    #f14c48   #e4ab35      #52dfe7
-client.focused_inactive #040714    #040714    #1ac5b0   #e4ab35      #1ac5b0
-client.urgent           #fdf500    #fdf500    #040714   #f14c48      #040714
+client.focused          #eae6dd    #008484    #ffffff   #008484      #000000
+client.unfocused        #eae6dd    #a28d68    #ffffff   #a28d68      #000000
+client.focused_inactive #eae6dd    #008484    #ffffff   #008484      #000000
+client.urgent           #00a4a4    #00a4a4    #ffffff   #a28d68      #000000
 client.placeholder      #000000    #0c0c0c    #ffffff   #000000      #0c0c0c
 
 client.background       #0c0c0c
@@ -150,13 +150,7 @@ mode "Power"
     bindsym Escape mode "default"
 }
 
-assign [class="firefox-nightly"] $ws_web
-assign [class="Updater" title="Обновление Firefox Nightly"] $ws_web
-assign [class="Tor Browser"] $ws_web
-
 assign [class="discord"] $ws_comm
-assign [class="TelegramDesktop"] $ws_comm
-assign [class="thunderbird"] $ws_comm
 assign [class="retroshare"] $ws_comm
 assign [class="zoom"] $ws_comm
 assign [class="Mattermost"] $ws_comm
@@ -171,9 +165,6 @@ assign [class="Minecraft Launcher"] $ws_games
 assign [class="minecraft-launcher"] $ws_games
 assign [class="Minecraft 1.19.4"] $ws_games
 
-assign [class="Pavucontrol"] $ws_sys
-assign [class="KeePassXC"] $ws_sys
-
 for_window [window_role="Organizer" class="firefox-nightly"] floating enable
 for_window [class="Lazarus"] floating enable
 for_window [class="steam"] floating enable
@@ -185,32 +176,41 @@ bar
 {
     strip_workspace_numbers yes
     status_command i3blocks
-#    Debug
-#    status_command 2>/tmp/i3blocks.err /usr/local/bin/i3blocks -vvv -c \
-#                   /home/bmigunov/.config/i3blocks/config | tee \
-#                   /tmp/i3blocks.out
+#    i3blocks Debug
+#     status_command 2>/tmp/i3blocks.err /usr/local/bin/i3blocks -vvv -c \
+#                    /home/bmigunov/.config/i3blocks/config | tee \
+#                    /tmp/i3blocks.out
     position       top
     height         24
-    font pango:3270Medium Nerd Font Mono 12
+    font pango:Segoe UI 10
 
     colors
     {
-        background         #040714d0
-        statusline         #d1c5c0
-        separator          #d1c5c0
-        focused_background #272932d0
-        focused_statusline #cfd0ff
-        focused_separator  #d1c5c0
-#          <colorclass>    <border>   <background>   <text>
-        focused_workspace  #272932da    #272932da    #52dfe7
-        active_workspace   #040714da    #040714da    #1ac5b0
-        inactive_workspace #272932da    #272932da    #f14c48
-        urgent_workspace   #fdf500da    #fdf500da    #272932
-        binding_mode       #710000da    #710000da    #f14c48
+        background         #d5ccbb
+        statusline         #000000
+        separator          #000000
+        focused_background #d5ccbb
+        focused_statusline #000000
+        focused_separator  #000000
+#          <colorclass>    <border> <background> <text>
+        focused_workspace  #a28d68    #eae6dd    #000000
+        active_workspace   #eae6dd    #d5ccbb    #000000
+        inactive_workspace #eae6dd    #d5ccbb    #000000
+        urgent_workspace   #d5ccbb    #008484    #ffffff
+        binding_mode       #d5ccbb    #008484    #ffffff
     }
 }
 
-exec conky -d
+input "1133:49978:Logitech_G413_Carbon_Mechanical_Gaming_Keyboard"
+{
+    xkb_layout us,ru
+    xkb_options grp:caps_toggle
+}
+
+exec kanshi
+exec swaybg --color '#ffffff' --mode fit --image ~/Pictures/wallpaper
+# exec conky -d
+exec albert --platform xcb
 
 exec keepassxc
 exec firefox
@@ -223,10 +223,14 @@ exec steam
 # Kill focused window.
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec dmenu_run
-bindsym $mod+Return  exec kitty
+# bindsym $mod+d exec dmenu_run -b -fn "3270 Nerd Font Mono-16"
+bindsym $mod+d exec albert toggle
+bindsym $mod+Return exec kitty
+
+bindsym $mod+Shift+Print exec grimshot save screen ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
+bindsym --release $mod+Print exec grimshot save area ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
 
 # Send signal to i3blocks (in case of [keyindicator] usage).
-bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
 
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+12 i3blocks
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+12 i3blocks
