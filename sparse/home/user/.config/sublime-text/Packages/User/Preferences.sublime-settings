@@ -1,0 +1,10 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"font_face": "Terminess Nerd Font Mono",
+	"font_size": 14,
+	"draw_white_space": ["all"]
+}
