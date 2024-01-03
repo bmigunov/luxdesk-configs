@@ -19,7 +19,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Launch Firefox & Thunderbird in Wayland-compatible mode
 export MOZ_ENABLE_WAYLAND=1
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.local/bin:$XDG_DATA_HOME/cargo/bin
+
+export QT_QPA_PLATFORM="wayland;xcb"
+
+QT_QPA_PLATFORMTHEME=qt5ct
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval $(ssh-agent -s)
