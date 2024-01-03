@@ -30,49 +30,40 @@ command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=16
 markup=none
 
-[keyindicator]
-interval=once
-markup=pango
-separator=true
-signal=11
-KEY=NUM
-COLOR_ON=#1cec84
-COLOR_OFF=#040714
+# [mpd-playpause]
+# interval=8
+# separator=true
+# signal=13
 
-[mpd-playpause]
-interval=8
-separator=true
-signal=13
+# [mpd]
+# interval=1
+# separator=true
+# ticker=true
+# ticker_chars_limit=16
+# min_width=################
+# align=center
 
-[mpd]
-interval=1
-separator=true
-ticker=true
-ticker_chars_limit=16
-min_width=################
-align=center
+# [mpd-prevbutton]
+# interval=once
+# separator=false
 
-[mpd-prevbutton]
-interval=once
-separator=false
+# [mpd-nextbutton]
+# interval=once
+# separator=true
 
-[mpd-nextbutton]
-interval=once
-separator=true
+# [mpd-repeat]
+# interval=8
+# separator=true
 
-[mpd-repeat]
-interval=8
-separator=true
+# [mpd-shuffle]
+# interval=8
+# separator=true
 
-[mpd-shuffle]
-interval=8
-separator=true
-
-[volume-pulseaudio]
-interval=2
-separator=true
-DEFAULT_COLOR=#cfd0ff
-MUTED_COLOR=#040714
+# [volume-pulseaudio]
+# interval=2
+# separator=true
+# DEFAULT_COLOR=#000000
+# MUTED_COLOR=#eae6dd
 
 [bandwidth3]
 markup=pango
@@ -89,7 +80,7 @@ interval=persist
 label= 
 separator=true
 min_width=###################
-WARN_COLOR=#f14c48
+WARN_COLOR=#008484
 
 [memory]
 interval=2
@@ -100,9 +91,9 @@ separator=true
 interval=4
 label= 
 separator=false
-COLOR_NORMAL=#cfd0ff
-COLOR_WARN=#fdf500
-COLOR_CRIT=#f14c48
+COLOR_NORMAL=#000000
+COLOR_WARN=#008484
+COLOR_CRIT=#00a4a4
 
 [temperature]
 interval=4
@@ -114,12 +105,12 @@ align=center
 ticker_interval=1
 separator=true
 ticker=true
-ticker_chars_limit=16
-METARSSTATION=ULLI
+ticker_chars_limit=22
+METARSSTATION=UWUU
 METARSURL=https://tgftp.nws.noaa.gov/data/observations/metar/stations/{}.TXT
 METARSENABLEMENTS={ "temperature": true, "dewpoint" : false, "feelsLike" : true, "wind" : true, "pressure" : false, "visibility" : false, "windDirType" : "icon", "useInverseWind" : false }
 METARSCONFIGS={ "temperatureUnit" : "C", "temperatureSym" : "°C", "pressureUnit" : "HPA", "pressureSym" : "hPa", "speedUnit" : "MPS", "speedSym" : "m/s", "distanceUnit" : "KM", "distanceSym" : "km", "precipitationUnit" : "CM", "precipitationSym" : "cm"}
-min_width=################
+min_width=##################
 
 [time]
 command=date +'%d.%m.%Y %H:%M:%S'
