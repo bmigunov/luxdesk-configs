@@ -30,6 +30,15 @@ command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=16
 markup=none
 
+# [keyindicator]
+# interval=once
+# markup=pango
+# separator=true
+# signal=11
+# KEY=NUM
+# COLOR_ON=#1cec84
+# COLOR_OFF=#040714
+
 # [mpd-playpause]
 # interval=8
 # separator=true
