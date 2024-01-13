@@ -1,0 +1,8 @@
+directory.default.set = ~/Downloads/Torrent
+session.path.set = ~/.cache/rtorrent
+
+schedule2 = watch_directory_3,5,300,load.start=~/Torrents/*.torrent
+schedule2 = watch_directory_1,5,60,"load.start=~/Torrents/series/*.torrent,d.directory.set=~/Video/series"
+schedule2 = watch_directory_2,5,5,"load.start=~/Torrents/music/*.torrent,d.directory.set=~/Audio/Music"
+schedule2 = watch_directory_3,5,300,"load.start=~/Torrents/movies/*.torrent,d.directory.set=~/Video/movies"
+schedule2 = watch_directory_3,5,300,"load.start=~/Torrents/games/*.torrent,d.directory.set=~/Games"
