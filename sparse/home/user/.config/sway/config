@@ -1,73 +1,20 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# sway/swayfx config file
 
 
 
+
+input "1133:49978:Logitech_G413_Carbon_Mechanical_Gaming_Keyboard"
+{
+    xkb_layout us,ru
+    xkb_options grp:caps_toggle
+}
+
+blur enable
+
+scratchpad_minimize disable
 
 # Set "Win" key as modifier.
 set $mod Mod4
-
-# Do not let focus follow the cursor.
-focus_follows_mouse no
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Segoe UI Semibold 10
-
-# Border style.
-default_border pixel 2
-
-default_orientation vertical
-
-workspace_layout tabbed
-
-# Colors
-#    <colorclass>       <border> <background> <text>  <indicator> <child_border>
-client.focused          #eae6dd    #008484    #ffffff   #008484      #000000
-client.unfocused        #eae6dd    #a28d68    #ffffff   #a28d68      #000000
-client.focused_inactive #eae6dd    #008484    #ffffff   #008484      #000000
-client.urgent           #00a4a4    #00a4a4    #ffffff   #a28d68      #000000
-client.placeholder      #000000    #0c0c0c    #ffffff   #000000      #0c0c0c
-
-client.background       #0c0c0c
-
-# Change focus.
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
-# Change focus between tiling/floating windows.
-bindsym $mod+space focus mode_toggle
-# Focus the parent container.
-bindsym $mod+a     focus parent
-# Focus the child container.
-bindsym $mod+c     focus child
-
-# Move focused window.
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
-
-# Use Mouse+$mod to drag floating windows to their wanted position.
-floating_modifier $mod
-
-# Toggle tiling/floating.
-bindsym $mod+Shift+space floating toggle
-
-# Change container layout (stacked, tabbed, toggle split),
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# Split in horizontal orientation.
-bindsym $mod+h split h
-# Split in vertical orientation.
-bindsym $mod+v split v
-
-# Enter fullscreen mode for the focused container.
-bindsym $mod+Shift+f fullscreen toggle
 
 # Define names for default workspaces for which we configure key bindings later
 # on. We use variables to avoid repeating the names in multiple places.
@@ -85,10 +32,108 @@ set $ws8 "11:θ"
 set $ws9 "12:ι"
 set $ws_sys "13:"
 
+# Do not let focus follow the cursor.
+focus_follows_mouse no
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Segoe UI Semibold 10
+
+# Border style.
+default_border pixel 2
+
+default_orientation vertical
+
+workspace_layout tabbed
+
+# Colors
+#    <colorclass>       <border>  <background> <text>  <indicator> <child_border>
+client.focused          #1a643cd0  #964288d0   #f0f0f0   #ebdd5bd0      #1a643cd0
+client.unfocused        #1a6463d0  #228483d0   #f0f0f0   #70d8ffd0      #275655d0
+client.focused_inactive #1a6463d0  #e37097d0   #f0f0f0   #b3ab61d0      #134948d0
+client.urgent           #1a6463d0  #fb009ed0   #f0f0f0   #a28d68d0      #000000d0
+client.placeholder      #1a6463d0  #0c0c0cd0   #f0f0f0   #000000d0      #0c0c0cd0
+
+client.background       #0c0c0c
+
+bindsym --to-code {
+# Focus the parent container.
+    $mod+a     focus parent
+# Focus the child container.
+    $mod+c     focus child
+
+# Change container layout (stacked, tabbed, toggle split),
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
+
+    # Split in horizontal orientation.
+    $mod+h split h
+    # Split in vertical orientation.
+    $mod+v split v
+
+    # Enter fullscreen mode for the focused container.
+    $mod+Shift+f fullscreen toggle
+
+    $mod+b workspace $ws_web
+    $mod+y workspace $ws_comm
+    $mod+g workspace $ws_games
+    $mod+bracketright workspace $ws_sys
+
+# Reload the configuration file.
+    $mod+r reload
+
+# Resize window (you can also use the mouse for that).
+    $mod+Shift+z mode "Resize"
+
+    $mod+Shift+l exec swaylock -k -l --font 'Segoe UI' --font-size 42           \
+                               --indicator-radius 128 --screenshots             \
+                               --effect-blur 7x5 --grace 2 --clock --indicator  \
+                               --fade-in 0.2 --inside-color 040714b0            \
+                               --inside-clear-color 272932b0                    \
+                               --inside-caps-lock-color 040714b0                \
+                               --inside-ver-color 272932b0 --inside-wrong-color \
+                               eab3beb0 --key-hl-color 964288 --layout-bg-color \
+                               04071400 --layout-border-color 04071400          \
+                               --layout-text-color f0f0f0 --line-color 228483   \
+                               --ring-color 228483b0 --line-clear-color 391d98  \
+                               --ring-clear-color 391d98b0                      \
+                               --line-caps-lock-color 228483                    \
+                               --ring-caps-lock-color 228483b0 --line-ver-color \
+                               1a643c --ring-ver-color 1a643cb0                 \
+                               --line-wrong-color fb009e --ring-wrong-color     \
+                               fb009eb0 --separator-color 1a643cb0 --text-color \
+                               f0f0f0 --text-clear-color fdd6b5                 \
+                               --text-caps-lock-color fdd6b5 --text-ver-color   \
+                               87c888 --text-wrong-color 040714
+# Kill focused window.
+    $mod+Shift+q kill
+
+    $mod+d exec tofi-drun | xargs swaymsg exec --
+    $mod+Shift+d exec tofi-run | xargs swaymsg exec --
+}
+
+# Change focus.
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+# Change focus between tiling/floating windows.
+bindsym $mod+space focus mode_toggle
+
+# Move focused window.
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# Use Mouse+$mod to drag floating windows to their wanted position.
+floating_modifier $mod
+
+# Toggle tiling/floating.
+bindsym $mod+Shift+space floating toggle
+
 # Switch to workspace.
-bindsym $mod+b workspace $ws_web
-bindsym $mod+y workspace $ws_comm
-bindsym $mod+g workspace $ws_games
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -98,7 +143,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+bracketright workspace $ws_sys
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -117,18 +161,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Reload the configuration file.
-bindsym $mod+r reload
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
-bindsym $mod+Shift+r restart
-# Exit i3 (logs you out of your X session).
-bindsym $mod+Shift+x exec "i3-nagbar -t warning -m \
-                     'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' \
-                     -B 'Yes, exit i3' 'i3-msg exit'"
-
-# Resize window (you can also use the mouse for that).
-bindsym $mod+Shift+z mode "Resize"
-
 mode "Resize"
 {
     bindsym Left  resize shrink width 8 px or 8 ppt
@@ -144,31 +176,20 @@ bindsym $mod+Shift+0 mode "Power"
 
 mode "Power"
 {
-    bindsym r exec systemctl reboot
-    bindsym s exec systemctl poweroff
+    bindsym --to-code r exec systemctl reboot
+    bindsym --to-code s exec systemctl poweroff
 
     bindsym Escape mode "default"
 }
 
+assign [app_id="firefox-nightly"] $ws_web
 assign [class="discord"] $ws_comm
-assign [class="retroshare"] $ws_comm
-assign [class="zoom"] $ws_comm
-assign [class="Mattermost"] $ws_comm
-assign [class="Element"] $ws_comm
-assign [class="Skype"] $ws_comm
+assign [app_id="org.telegram.desktop"] $ws_comm
+assign [app_id="thunderbird-default"] $ws_comm
 
 assign [class="steam"] $ws_games
-assign [title="Steam"] $ws_games
-assign [class="Dwarf_Fortress"] $ws_games
-assign [class="DarkPlaces"] $ws_games
-assign [class="Minecraft Launcher"] $ws_games
-assign [class="minecraft-launcher"] $ws_games
-assign [class="Minecraft 1.19.4"] $ws_games
 
-for_window [window_role="Organizer" class="firefox-nightly"] floating enable
-for_window [class="Lazarus"] floating enable
-for_window [class="steam"] floating enable
-for_window [class="steam" title="Steam"] floating disable
+for_window [app_id="firefox-nightly" title="Библиотека"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -181,37 +202,45 @@ bar
 #                    /home/bmigunov/.config/i3blocks/config | tee \
 #                    /tmp/i3blocks.out
     position       top
-    height         24
-    font pango:Segoe UI 10
+    height         28
+    font pango:Segoe UI 11
 
     colors
     {
-        background         #d5ccbb
-        statusline         #000000
-        separator          #000000
-        focused_background #d5ccbb
-        focused_statusline #000000
-        focused_separator  #000000
-#          <colorclass>    <border> <background> <text>
-        focused_workspace  #a28d68    #eae6dd    #000000
-        active_workspace   #eae6dd    #d5ccbb    #000000
-        inactive_workspace #eae6dd    #d5ccbb    #000000
-        urgent_workspace   #d5ccbb    #008484    #ffffff
-        binding_mode       #d5ccbb    #008484    #ffffff
+        background         #228483d0
+        statusline         #f0f0f0
+        separator          #f0f0f0
+        focused_background #228483d0
+        focused_statusline #f0f0f0
+        focused_separator  #f0f0f0
+#          <colorclass>    <border>  <background> <text>
+        focused_workspace  #1a6463d0  #964288d0   #f0f0f0
+        active_workspace   #1a6463d0  #e37097d0   #f0f0f0
+        inactive_workspace #1a6463d0  #228483d0   #f0f0f0
+        urgent_workspace   #1a6463d0  #fb009ed0   #eab3be
+        binding_mode       #1a6463d0  #391d98d0   #70d8ff
     }
 }
 
-input "1133:49978:Logitech_G413_Carbon_Mechanical_Gaming_Keyboard"
-{
-    xkb_layout us,ru
-    xkb_options grp:caps_toggle
-}
+bindsym $mod+Return exec kitty
+
+bindsym $mod+Print exec grimshot save screen ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
+bindsym --release $mod+Shift+Print exec grimshot save area ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
+
+# Send signal to i3blocks (in case of [keyindicator] usage).
+# bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+12 i3blocks
 
 exec kanshi
 exec swaybg --color '#ffffff' --mode fit --image ~/Pictures/wallpaper
-# exec conky -d
-exec albert --platform xcb
+exec mako
 
+exec swayidle timeout 600 \
+              'swaylock -k -l --font "Segoe UI" --font-size 42 --indicator-radius 128 --screenshots --effect-blur 7x5 --grace 2 --clock --indicator --fade-in 0.2 --inside-color 040714b0 --inside-clear-color 272932b0 --inside-caps-lock-color 040714b0 --inside-ver-color 272932b0 --inside-wrong-color eab3beb0 --key-hl-color 964288 --layout-bg-color 04071400 --layout-border-color 04071400 --layout-text-color f0f0f0 --line-color 228483 --ring-color 228483b0 --line-clear-color 391d98 --ring-clear-color 391d98b0 --line-caps-lock-color 228483 --ring-caps-lock-color 228483b0 --line-ver-color 1a643c --ring-ver-color 1a643cb0 --line-wrong-color fb009e --ring-wrong-color fb009eb0 --separator-color 1a643cb0 --text-color f0f0f0 --text-clear-color fdd6b5 --text-caps-lock-color fdd6b5 --text-ver-color 87c888 --text-wrong-color 040714' \
+              timeout 1200 'swaymsg "output * power off"' resume \
+              'swaymsg "output * power on"' before-sleep \
+              'swaylock -k -l --font "Segoe UI" --font-size 42 --indicator-radius 128 --screenshots --effect-blur 7x5 --grace 2 --clock --indicator --fade-in 0.2 --inside-color 040714b0 --inside-clear-color 272932b0 --inside-caps-lock-color 040714b0 --inside-ver-color 272932b0 --inside-wrong-color eab3beb0 --key-hl-color 964288 --layout-bg-color 04071400 --layout-border-color 04071400 --layout-text-color f0f0f0 --line-color 228483 --ring-color 228483b0 --line-clear-color 391d98 --ring-clear-color 391d98b0 --line-caps-lock-color 228483 --ring-caps-lock-color 228483b0 --line-ver-color 1a643c --ring-ver-color 1a643cb0 --line-wrong-color fb009e --ring-wrong-color fb009eb0 --separator-color 1a643cb0 --text-color f0f0f0 --text-clear-color fdd6b5 --text-caps-lock-color fdd6b5 --text-ver-color 87c888 --text-wrong-color 040714'
 exec keepassxc
 exec firefox
 exec thunderbird
@@ -219,18 +248,4 @@ exec telegram
 exec retroshare
 exec discord
 exec steam
-
-# Kill focused window.
-bindsym $mod+Shift+q kill
-
-# bindsym $mod+d exec dmenu_run -b -fn "3270 Nerd Font Mono-16"
-bindsym $mod+d exec albert toggle
-bindsym $mod+Return exec kitty
-
-bindsym $mod+Shift+Print exec grimshot save screen ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
-bindsym --release $mod+Print exec grimshot save area ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
-
-# Send signal to i3blocks (in case of [keyindicator] usage).
-# bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
-
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+12 i3blocks
+exec obsidian
