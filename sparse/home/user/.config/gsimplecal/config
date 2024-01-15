@@ -1,0 +1,5 @@
+show_timezones = 1
+force_lang = ru_RU.utf8
+clock_format = %a %d %b %H:%M:%S
+clock_label = Екатеринбург
+clock_tz = :Asia/Yekaterinburg
