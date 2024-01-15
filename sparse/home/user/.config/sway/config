@@ -1,4 +1,4 @@
-# sway/swayfx config file
+# swayfx config file
 
 
 
@@ -11,13 +11,15 @@ input "1133:49978:Logitech_G413_Carbon_Mechanical_Gaming_Keyboard"
 
 blur enable
 
+corner_radius 4
+
 scratchpad_minimize disable
 
-# Set "Win" key as modifier.
+# Set "Super" key as modifier.
 set $mod Mod4
 
 # Define names for default workspaces for which we configure key bindings later
-# on. We use variables to avoid repeating the names in multiple places.
+# on.
 set $ws_web "1:WEB"
 set $ws_comm "2:COMM"
 set $ws_games "3:GAMES"
@@ -32,6 +34,8 @@ set $ws8 "11:θ"
 set $ws9 "12:ι"
 set $ws_sys "13:"
 
+set $terminal kitty
+
 # Do not let focus follow the cursor.
 focus_follows_mouse no
 
@@ -40,7 +44,7 @@ focus_follows_mouse no
 font pango:Segoe UI Semibold 10
 
 # Border style.
-default_border pixel 2
+default_border pixel 4
 
 default_orientation vertical
 
@@ -48,11 +52,11 @@ workspace_layout tabbed
 
 # Colors
 #    <colorclass>       <border>  <background> <text>  <indicator> <child_border>
-client.focused          #1a643cd0  #964288d0   #f0f0f0   #ebdd5bd0      #1a643cd0
-client.unfocused        #1a6463d0  #228483d0   #f0f0f0   #70d8ffd0      #275655d0
-client.focused_inactive #1a6463d0  #e37097d0   #f0f0f0   #b3ab61d0      #134948d0
-client.urgent           #1a6463d0  #fb009ed0   #f0f0f0   #a28d68d0      #000000d0
-client.placeholder      #1a6463d0  #0c0c0cd0   #f0f0f0   #000000d0      #0c0c0cd0
+client.focused          #3d9e97e0  #0e0e17d0   #5cf6fd   #a37c26e0      #3d9e97e0
+client.unfocused        #6b1217e0  #291018d0   #c03f3a   #461612e0      #6b1217e0
+client.focused_inactive #255451e0  #0e0e17d0   #a4a19b   #4a351be0      #255451e0
+client.urgent           #00ffece0  #105a45d0   #00ffec   #ff635de0      #00ffece0
+client.placeholder      #a4a19be0  #291018d0   #a4a19b   #a4a19be0      #a4a19be0
 
 client.background       #0c0c0c
 
@@ -203,26 +207,26 @@ bar
 #                    /tmp/i3blocks.out
     position       top
     height         28
-    font pango:Segoe UI 11
+    font pango:3270 Nerd Font Mono 14
 
     colors
     {
-        background         #228483d0
-        statusline         #f0f0f0
-        separator          #f0f0f0
-        focused_background #228483d0
-        focused_statusline #f0f0f0
-        focused_separator  #f0f0f0
+        background         #3a1318db
+        statusline         #d7d5d4
+        separator          #892829
+        focused_background #3a1318db
+        focused_statusline #d7d5d4
+        focused_separator  #892829
 #          <colorclass>    <border>  <background> <text>
-        focused_workspace  #1a6463d0  #964288d0   #f0f0f0
-        active_workspace   #1a6463d0  #e37097d0   #f0f0f0
-        inactive_workspace #1a6463d0  #228483d0   #f0f0f0
-        urgent_workspace   #1a6463d0  #fb009ed0   #eab3be
-        binding_mode       #1a6463d0  #391d98d0   #70d8ff
+        focused_workspace  #3a1318db  #3a1318db   #29ffff
+        active_workspace   #3a1318db  #3a1318db   #a4a19b
+        inactive_workspace #3a1318db  #3a1318db   #ff5d57
+        urgent_workspace   #00ffecdb  #105a45db   #00ffec
+        binding_mode       #c1912edb  #2d2114db   #ffd742
     }
 }
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $terminal
 
 bindsym $mod+Print exec grimshot save screen ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
 bindsym --release $mod+Shift+Print exec grimshot save area ~/Pictures/screenshots/$(date +%Y%m%d%H%M%S).png
