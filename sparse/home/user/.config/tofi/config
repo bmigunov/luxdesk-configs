@@ -13,10 +13,10 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Segoe UI"
+	font = "3270 Nerd Font Mono"
 
 	# Point size of text.
-	font-size = 14
+	font-size = 16
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -50,7 +50,7 @@
 	# Default text color
 	#
 	# All text defaults to this color if not otherwise specified.
-	text-color = #f0f0f0
+	text-color = #ff5953
 
 	# All pieces of text have the same theming attributes available:
 	#
@@ -68,28 +68,28 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	# prompt-color = #FFFFFF
-	# prompt-background = #228383
-	prompt-background-padding = 0
-	prompt-background-corner-radius = 0
+	prompt-color = #fffe44
+	# prompt-background = #000000
+	# prompt-background-padding = 0
+	# prompt-background-corner-radius = 0
 
 	# Placeholder text theme
-	placeholder-color = #FFFFFFA8
-	placeholder-background = #00000000
-	placeholder-background-padding = 0
-	placeholder-background-corner-radius = 0
+	placeholder-color = #fffe44
+	# placeholder-background = #000000
+	# placeholder-background-padding = 0
+	# placeholder-background-corner-radius = 0
 
 	# Input text theme
-	# input-color = #FFFFFF
-	# input-background = #228383
-	input-background-padding = 0
-	input-background-corner-radius = 0
+	input-color = #fffe44
+	# input-background = #000000
+	# input-background-padding = 0
+	# input-background-corner-radius = 0
 
 	# Default result text theme
-	# default-result-color = #FFFFFF
-	default-result-background = #00000000
-	default-result-background-padding = 0
-	default-result-background-corner-radius = 0
+	# default-result-color = #000000
+	# default-result-background = #000000
+	# default-result-background-padding = 0
+	# default-result-background-corner-radius = 0
 
 	# Alternate (even-numbered) result text theme
 	#
@@ -102,13 +102,13 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #f0f0f0
-	selection-background = #2cadab
-	selection-background-padding = 0
-	selection-background-corner-radius = 0
+	selection-color = #fffe44
+	# selection-background = #00151ff0
+	# selection-background-padding = 0
+	# selection-background-corner-radius = 0
 
 	# Matching portion of selection text
-	selection-match-color = #00000000
+	# selection-match-color = #000000
 
 
 #
@@ -142,7 +142,7 @@
 ### Text layout
 #
 	# Prompt to display.
-	prompt-text = "Run: "
+	prompt-text = "RUN: "
 
 	# Extra horizontal padding between prompt and input.
 	prompt-padding = 0
@@ -155,44 +155,44 @@
 	num-results = 0
 
 	# Spacing between results in pixels. Can be negative.
-	result-spacing = 0
+	result-spacing = 16
 
 	# List results horizontally.
-	horizontal = false
+	horizontal = true
 
 	# Minimum width of input in horizontal mode.
-	min-input-width = 0
+	min-input-width = 256
 
 #
 ### Window theming
 #
 	# Width and height of the window. Can be pixels or a percentage.
-	width = 15%
-	height = 45%
+	width = 100%
+	height = 28
 
 	# Window background color
-	background-color = #6a2a80f0
+	background-color = #001c21f0
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
 
 	# Border outline color
-	outline-color = #1a643c
+	outline-color = #692322
 
 	# Width of the border in pixels.
-	border-width = 4
+	border-width = 2
 
 	# Border color
-	border-color = #1a643c
+	border-color = #692322
 
 	# Radius of window corners in pixels.
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 8
-	padding-bottom = 8
-	padding-left = 8
-	padding-right = 8
+	padding-top = 0
+	padding-bottom = 0
+	padding-left = 0
+	padding-right = 0
 
 	# Whether to clip text drawing to be within the specified padding. This
 	# is mostly important for allowing text to be inset from the border,
@@ -213,7 +213,7 @@
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = top-left
+	anchor = bottom
 
 	# Set the size of the exclusive zone.
 	#
