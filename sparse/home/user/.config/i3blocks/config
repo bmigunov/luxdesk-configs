@@ -68,11 +68,11 @@ markup=none
 # interval=8
 # separator=true
 
-# [volume-pulseaudio]
-# interval=2
-# separator=true
-# DEFAULT_COLOR=#000000
-# MUTED_COLOR=#eae6dd
+[volume-pulseaudio]
+interval=2
+separator=true
+DEFAULT_COLOR=#d7d5d4
+MUTED_COLOR=#a4a19b
 
 [bandwidth3]
 markup=pango
@@ -100,9 +100,9 @@ separator=true
 interval=4
 label= 
 separator=false
-COLOR_NORMAL=#000000
-COLOR_WARN=#008484
-COLOR_CRIT=#00a4a4
+COLOR_NORMAL=#d7d5d4
+COLOR_WARN=#fffe44
+COLOR_CRIT=#ff625a
 
 [temperature]
 interval=4
