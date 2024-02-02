@@ -1,0 +1,5 @@
+ncmpcpp_directory = ~/.local/share/ncmpcpp
+lyrics_directory = ~/.cache/ncmpcpp/lyrics
+
+visualizer_type = "wave_filled"
+user_interface = alternative
