@@ -21,7 +21,9 @@ export MOZ_ENABLE_WAYLAND=1
 
 export PATH=$PATH:$HOME/.local/bin:$XDG_DATA_HOME/cargo/bin
 
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM=wayland
+
+export GDK_BACKEND=wayland
 
 QT_QPA_PLATFORMTHEME=qt5ct
 
