@@ -46,9 +46,9 @@ font pango:Segoe UI Semibold 10
 # Border style.
 default_border pixel 4
 
-default_orientation vertical
+default_orientation horizontal
 
-workspace_layout tabbed
+workspace_layout default
 
 # Colors
 #    <colorclass>       <border>  <background> <text>  <indicator> <child_border>
@@ -187,7 +187,9 @@ mode "Power"
 }
 
 assign [app_id="firefox-nightly"] $ws_web
+assign [app_id="org.keepassxc.KeePassXC"] $ws_sys
 assign [class="discord"] $ws_comm
+assign [class="Steam"] $ws_games
 assign [app_id="org.telegram.desktop"] $ws_comm
 assign [app_id="thunderbird-default"] $ws_comm
 
@@ -206,8 +208,8 @@ bar
 #                    /home/bmigunov/.config/i3blocks/config | tee \
 #                    /tmp/i3blocks.out
     position       top
-    height         28
-    font pango:3270 Nerd Font Mono 14
+    height         30
+    font pango:3270 Nerd Font Mono 16
 
     colors
     {
@@ -239,6 +241,9 @@ bindsym --release $mod+Shift+Print exec grimshot save area ~/Pictures/screenshot
 exec kanshi
 exec swaybg --color '#ffffff' --mode fit --image ~/Pictures/wallpaper
 exec mako
+exec dbus-update-activation-environment --all
+exec /usr/libexec/xdg-desktop-portal -r
+exec /usr/libexec/xdg-desktop-portal-wlr -r
 
 exec swayidle timeout 600 \
               'swaylock -k -l --font "Segoe UI" --font-size 42 --indicator-radius 128 --screenshots --effect-blur 7x5 --grace 2 --clock --indicator --fade-in 0.2 --inside-color 040714b0 --inside-clear-color 272932b0 --inside-caps-lock-color 040714b0 --inside-ver-color 272932b0 --inside-wrong-color eab3beb0 --key-hl-color 964288 --layout-bg-color 04071400 --layout-border-color 04071400 --layout-text-color f0f0f0 --line-color 228483 --ring-color 228483b0 --line-clear-color 391d98 --ring-clear-color 391d98b0 --line-caps-lock-color 228483 --ring-caps-lock-color 228483b0 --line-ver-color 1a643c --ring-ver-color 1a643cb0 --line-wrong-color fb009e --ring-wrong-color fb009eb0 --separator-color 1a643cb0 --text-color f0f0f0 --text-clear-color fdd6b5 --text-caps-lock-color fdd6b5 --text-ver-color 87c888 --text-wrong-color 040714' \
