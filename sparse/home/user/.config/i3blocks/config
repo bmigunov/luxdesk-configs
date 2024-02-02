@@ -68,12 +68,6 @@ markup=none
 # interval=8
 # separator=true
 
-[volume-pulseaudio]
-interval=2
-separator=true
-DEFAULT_COLOR=#d7d5d4
-MUTED_COLOR=#a4a19b
-
 [bandwidth3]
 markup=pango
 interval=persist
@@ -108,6 +102,21 @@ COLOR_CRIT=#ff625a
 interval=4
 separator=true
 
+[volume-pipewire]
+interval=2
+separator=true
+DEFAULT_COLOR=#56fcfd
+MUTED_COLOR=#a4a19b
+
+[sway_klayout]
+color=5cf6fd
+label= 
+align=center
+interval=1
+min_width=################
+separator=true
+signal=12
+
 [metars]
 interval=2100
 align=center
@@ -121,7 +130,6 @@ METARSENABLEMENTS={ "temperature": true, "dewpoint" : false, "feelsLike" : true,
 METARSCONFIGS={ "temperatureUnit" : "C", "temperatureSym" : "°C", "pressureUnit" : "HPA", "pressureSym" : "hPa", "speedUnit" : "MPS", "speedSym" : "m/s", "distanceUnit" : "KM", "distanceSym" : "km", "precipitationUnit" : "CM", "precipitationSym" : "cm"}
 min_width=##################
 
-[time]
-command=date +'%d.%m.%Y %H:%M:%S'
+[sway_calendar]
 interval=1
 separator=true
