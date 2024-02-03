@@ -208,8 +208,8 @@ bar
 #                    /home/bmigunov/.config/i3blocks/config | tee \
 #                    /tmp/i3blocks.out
     position       top
-    height         30
-    font pango:3270 Nerd Font Mono 16
+    height         28
+    font pango:3270 Nerd Font 14
 
     colors
     {
