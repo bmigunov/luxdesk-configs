@@ -30,69 +30,31 @@ command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=16
 markup=none
 
-# [keyindicator]
-# interval=once
-# markup=pango
-# separator=true
-# signal=11
-# KEY=NUM
-# COLOR_ON=#1cec84
-# COLOR_OFF=#040714
 
-# [mpd-playpause]
-# interval=8
-# separator=true
-# signal=13
-
-# [mpd]
-# interval=1
-# separator=true
-# ticker=true
-# ticker_chars_limit=16
-# min_width=################
-# align=center
-
-# [mpd-prevbutton]
-# interval=once
-# separator=false
-
-# [mpd-nextbutton]
-# interval=once
-# separator=true
-
-# [mpd-repeat]
-# interval=8
-# separator=true
-
-# [mpd-shuffle]
-# interval=8
-# separator=true
-
-[bandwidth3]
-markup=pango
-interval=persist
+[public-ip]
+command=wget -qO - icanhazip.com
+interval=once
+mid_width=###############
 separator=true
-
-[iface]
-interval=8
-separator=true
+align=center
+label=󰩟  
 
 [disk-io]
 align=center
 interval=persist
-label= 
+label=  
 separator=true
 min_width=###################
 WARN_COLOR=#008484
 
 [memory]
 interval=2
-label=MEM 
+label=󰍛  
 separator=true
 
 [cpu_usage]
 interval=4
-label= 
+label=  
 separator=false
 COLOR_NORMAL=#d7d5d4
 COLOR_WARN=#fffe44
@@ -101,21 +63,6 @@ COLOR_CRIT=#ff625a
 [temperature]
 interval=4
 separator=true
-
-[volume-pipewire]
-interval=2
-separator=true
-DEFAULT_COLOR=#56fcfd
-MUTED_COLOR=#a4a19b
-
-[sway_klayout]
-color=5cf6fd
-label= 
-align=center
-interval=1
-min_width=################
-separator=true
-signal=12
 
 [metars]
 interval=2100
@@ -130,6 +77,22 @@ METARSENABLEMENTS={ "temperature": true, "dewpoint" : false, "feelsLike" : true,
 METARSCONFIGS={ "temperatureUnit" : "C", "temperatureSym" : "°C", "pressureUnit" : "HPA", "pressureSym" : "hPa", "speedUnit" : "MPS", "speedSym" : "m/s", "distanceUnit" : "KM", "distanceSym" : "km", "precipitationUnit" : "CM", "precipitationSym" : "cm"}
 min_width=##################
 
+[volume-pipewire]
+interval=2
+separator=true
+DEFAULT_COLOR=#02ffe4
+MUTED_COLOR=#a4a19b
+
+[sway_klayout]
+color=02ffe4
+label=󰌌  
+align=center
+interval=1
+min_width=################
+separator=true
+signal=12
+
 [sway_calendar]
+label=  
 interval=1
 separator=true
