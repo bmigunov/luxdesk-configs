@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=SwayFX
-Comment=An i3-compatible Wayland compositor
-Exec=env XDG_CURRENT_DESKTOP=swayfx /usr/local/bin/sway
-Type=Application
