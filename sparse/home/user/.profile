@@ -25,7 +25,7 @@ export QT_QPA_PLATFORM="wayland;xcb"
 
 export GDK_BACKEND=wayland
 
-QT_QPA_PLATFORMTHEME=qt5ct
+export WINEPREFIX=$HOME/.local/share/wine
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval $(ssh-agent -s)
@@ -66,10 +66,12 @@ fi
 export AUDIO_DIR="${HOME}/Audio"
 export MUSIC_DIR="${AUDIO_DIR}/Music"
 
-export BOOKS_DIR="${HOME}/Books"
-
 export DOCUMENTS_DIR="${HOME}/Documents"
 export DOCUMENTS_JOB_DIR="${DOCUMENTS_DIR}/job"
+
+export BOOKS_DIR="${DOCUMENTS_DIR}/Books"
+
+export OBSIDIAN_DIR="${DOCUMENTS_DIR}/obsidian"
 
 export DOWNLOADS_DIR="${HOME}/Downloads"
 export TELEGRAM_DOWNLOADS_DIR="${DOWNLOADS_DIR}/Telegram"
@@ -108,7 +110,6 @@ export WORKSPACE_JOB_DIR="${WORKSPACE_DIR}/job"
 export GHIDRA_DIR="${WORKSPACE_DIR}/ghidra"
 export ANDROID_STUDIO_SDK_DIR="${WORKSPACE_DIR}/android_studio/sdk"
 export ANDROID_STUDIO_PROJECTS_DIR="${WORKSPACE_DIR}/android_studio/projects"
-export OBSIDIAN_DIR="${WORKSPACE_DIR}/obsidian"
 export SRC_DIR="${WORKSPACE_DIR}/src"
 export VAR_DIR="${WORKSPACE_DIR}/var"
 export SAVED_LOGS_DIR="${VAR_DIR}/log"
