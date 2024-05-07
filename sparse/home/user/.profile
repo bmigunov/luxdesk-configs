@@ -27,11 +27,6 @@ export GDK_BACKEND=wayland
 
 export WINEPREFIX=$HOME/.local/share/wine
 
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval $(ssh-agent -s)
-    ssh-add
-fi
-
 if [ "${XDG_DATA_HOME}" ]; then
     export HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
     export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
