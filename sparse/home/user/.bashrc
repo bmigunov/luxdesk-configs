@@ -188,10 +188,10 @@ else
 fi
 unset color_prompt
 
-if [ -f "${SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]; then
+if [ -f "${LXD_SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_THEME=Default
-    source "${SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh"
+    source "${LXD_SRC_DIR}/magicmonty/bash-git-prompt/gitprompt.sh"
 fi
 
 # Enable color support of ls
@@ -199,22 +199,17 @@ if [ -x /usr/bin/dircolors ]; then
     if [ "${XDG_CONFIG_HOME}" ]; then
         test -r "${XDG_CONFIG_HOME}/dircolors" && eval "$(dircolors -b ${XDG_CONFIG_HOME}/dircolors)" || eval "$(dircolors -b)"
     else
-        test -r ~/.config/dircolors && eval "$(dircolors -b ~/.config/dircolors)" || eval "$(dircolors -b)"
+        test -r "{HOME}/.config/dircolors" && eval "$(dircolors -b ${HOME}/.config/dircolors)" || eval "$(dircolors -b)"
     fi
 fi
 
 # Alias definitions.
 if [ -f "${XDG_CONFIG_HOME}/bash/bash_aliases" ]; then
     . "${XDG_CONFIG_HOME}/bash/bash_aliases"
-elif [ -f ~/.config/bash/bash_aliases ]; then
-    . ~/.config/bash/bash_aliases
+elif [ -f "${HOME}/.config/bash/bash_aliases" ]; then
+    . "${HOME}/.config/bash/bash_aliases"
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-if [ "${XDG_DATA_HOME}" ]; then
-    export SDKMAN_DIR="${XDG_DATA_HOME}/sdkman"
-    [[ -s "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh" ]] && source "${XDG_DATA_HOME}/sdkman/bin/sdkman-init.sh"
-else
-    export SDKMAN_DIR="${HOME}/.local/share/sdkman"
-    [[ -s "${HOME}/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.local/share/sdkman/bin/sdkman-init.sh"
-fi
+export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
+[[ -s "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh" ]] && source "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh"
