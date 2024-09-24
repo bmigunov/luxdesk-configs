@@ -1,0 +1,20 @@
+# Docker
+deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable
+
+# Adoptium
+deb https://packages.adoptium.net/artifactory/deb bookworm main
+
+# I2P
+deb [signed-by=/usr/share/keyrings/i2p-archive-keyring.gpg] https://deb.i2p.net bookworm main
+
+# GitHub CLI
+deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main
+
+# Element.io
+deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian default main
+
+# Mozilla
+deb [signed-by=/usr/share/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main
+
+#OpenVPN
+deb [signed-by=/usr/share/keyrings/openvpn.asc] https://packages.openvpn.net/openvpn3/debian bookworm main
