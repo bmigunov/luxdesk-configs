@@ -213,3 +213,6 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 [[ -s "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh" ]] && source "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh"
+. "/home/bmigunov/.local/share/cargo/env"
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
