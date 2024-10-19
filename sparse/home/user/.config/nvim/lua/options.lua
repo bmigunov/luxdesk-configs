@@ -11,7 +11,11 @@ local vim_opt = vim.opt
 
 vim_opt.autoindent = false
 vim_opt.backupcopy = "auto"
+
+--[[
 vim_opt.backupdir = {vim_fn.expand("$NEOVIM_BACKUP_DIR") .. "//"}
+]]
+
 vim_opt.backupext = ".bk"
 vim_opt.breakindent = true
 vim_opt.breakindentopt = {min = 16, shift = 0, list = 2}
@@ -37,7 +41,11 @@ vim_opt.menuitems = 32
 vim_opt.mouse = "a"
 vim_opt.mousemodel = "popup_setpos"
 vim_opt.number = true
+
+--[[
 vim_opt.path={".", "./../include", "/usr/include", "/usr/local/include", vim_fn.expand("$HOME") .. "/.local/include", "",}
+]]
+
 vim_opt.preserveindent = true
 vim_opt.pumblend = 16
 vim_opt.scrolloff = 1
@@ -63,3 +71,4 @@ vim_opt.updatetime = 32000
 vim_opt.whichwrap = "<,>,[,]"
 vim_opt.winblend = 8
 vim_opt.wrap = true
+vim_opt.relativenumber=true

@@ -5,10 +5,10 @@ Lua initialization file for Neovim.
 
 
 
---[[
 require("options")
-require("keymaps")
-require("global_variables")
-require("plugins")
-require("lang_servers")
-]]
+require("vim-plug")
+require("setup_nvim-tree")
+require("setup_lualine")
+require("setup_gitsigns")
+require("setup_lspconfig")
+require("setup_nvim-cmp")
