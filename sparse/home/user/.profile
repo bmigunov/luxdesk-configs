@@ -118,3 +118,4 @@ export LXD_WALLPAPERS_DIR="${LXD_PICTURES_DIR}/Wallpapers"
 export LXD_PIC_ASSETS_DIR="${LXD_PICTURES_DIR}/Assets"
 
 eval $(ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent.sock)
+. "/home/bmigunov/.local/share/cargo/env"

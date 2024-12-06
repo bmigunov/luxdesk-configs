@@ -4,7 +4,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 
 Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
+Plug ('nvim-tree/nvim-tree.lua', {tag = 'v1.7.1'})
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'rktjmp/lush.nvim'

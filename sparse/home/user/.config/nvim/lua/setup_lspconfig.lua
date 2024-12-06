@@ -6,3 +6,4 @@ lspconfig.pyright.setup{}
 lspconfig.marksman.setup{}
 lspconfig.lua_ls.setup{}
 lspconfig.autotools_ls.setup{}
+lspconfig.qmlls.setup{}
